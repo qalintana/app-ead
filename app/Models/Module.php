@@ -2,23 +2,23 @@
 
 namespace App\Models;
 
+// use App\Models\Traits\UuidTrait;
+
 use App\Models\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Str;
 
-class Course extends Model
+class Module extends Model
 {
     use HasFactory;
     use UuidTrait;
 
-
-    protected $fillable = ['name', 'description', 'image'];
-
     public $incrementing = false;
 
     protected $keyType = 'uuid';
+
+    protected $fillable = ['name', 'course_id'];
 
     // public static function booted()
     // {
@@ -27,8 +27,8 @@ class Course extends Model
     //     });
     // }
 
-    public function modules()
+    public function course()
     {
-        return $this->hasMany(Module::class);
+        return $this->belongsTo(Course::class);
     }
 }

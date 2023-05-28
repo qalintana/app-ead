@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Str;
 
-class Course extends Model
+class Lesson extends Model
 {
     use HasFactory;
     use UuidTrait;
 
 
-    protected $fillable = ['name', 'description', 'image'];
+    protected $fillable = ['name', 'description', 'video'];
 
     public $incrementing = false;
 
@@ -27,8 +27,5 @@ class Course extends Model
     //     });
     // }
 
-    public function modules()
-    {
-        return $this->hasMany(Module::class);
-    }
+
 }
