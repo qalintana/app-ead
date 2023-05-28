@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class Course extends Model
 {
     use HasFactory;
-    // use UuidTrait;
+    use UuidTrait;
 
 
 
@@ -21,10 +21,10 @@ class Course extends Model
 
     protected $keyType = 'uuid';
 
-    public static function booted()
-    {
-        static::creating(function ($model) {
-            $model->id =(string) Str::uuid();
-        });
-    }
+    // public static function booted()
+    // {
+    //     static::creating(function ($model) {
+    //         $model->id =(string) Str::uuid();
+    //     });
+    // }
 }
