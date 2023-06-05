@@ -17,6 +17,9 @@ return new class () extends Migration {
             $table->enum('status', ['A', 'P', 'C'])->default('P');
             $table->text('description');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('lesson_id')->references('id')->on('lessons');
         });
     }
 

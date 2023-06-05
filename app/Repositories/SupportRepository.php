@@ -29,14 +29,26 @@ class SupportRepository
                 $filter = $filters['filter'];
                 $query->where('description', 'LIKE', "%{$filter}%");
             }
-
-
         })->get();
     }
 
     private function getUserAuth(): User
     {
         return User::first();
+    }
+
+
+    public function createNewSupport(array $data): Support
+    {
+        $support = $this->getUserAuth()->supports()
+                            ->create(
+                                ['lesson_id'=> $data['lesson'],
+                                     'description'=>$data['description'],
+                                     'status'=>$data['status'],
+                                ]
+                            );
+
+        return $support;
     }
 
 

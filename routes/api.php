@@ -25,4 +25,5 @@ Route::get('/modules/{id}/lessons', [LessonController::class, 'index']);
 Route::get('/lessons/{id}', [LessonController::class, 'show']);
 
 
+Route::post('/supports', [SupportController::class, 'store']);
 Route::get('/supports', [SupportController::class, 'index']);
