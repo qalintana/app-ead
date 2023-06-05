@@ -20,12 +20,12 @@ class Lesson extends Model
 
     protected $keyType = 'uuid';
 
-    // public static function booted()
-    // {
-    //     static::creating(function ($model) {
-    //         $model->id =(string) Str::uuid();
-    //     });
-    // }
+
+    public function supports()
+    {
+        return $this->hasMany(Support::class);
+    }
+
 
 
 }

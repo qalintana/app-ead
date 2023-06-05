@@ -53,5 +53,10 @@ class User extends Authenticatable
         'id' => 'string'
     ];
 
+    public function supports()
+    {
+        return $this->hasMany(Support::class);
+    }
+
 
 }
