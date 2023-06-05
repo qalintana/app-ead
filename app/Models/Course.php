@@ -20,12 +20,6 @@ class Course extends Model
 
     protected $keyType = 'uuid';
 
-    // public static function booted()
-    // {
-    //     static::creating(function ($model) {
-    //         $model->id =(string) Str::uuid();
-    //     });
-    // }
 
     public function modules()
     {
