@@ -28,4 +28,4 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']);
 Route::post('/supports', [SupportController::class, 'store']);
 Route::get('/supports', [SupportController::class, 'index']);
 
-Route::get('/supports/{id}/replies', [SupportController::class, 'show']);
+Route::post('/supports/{id}/replies', [SupportController::class, 'createReply']);

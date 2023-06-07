@@ -29,7 +29,9 @@ class SupportRepository
                 $filter = $filters['filter'];
                 $query->where('description', 'LIKE', "%{$filter}%");
             }
-        })->get();
+        })
+        ->orderBy('updated_at')
+        ->get();
     }
 
     private function getUserAuth(): User
@@ -55,7 +57,8 @@ class SupportRepository
     public function createReplyToSupportId($supportId, array $data)
     {
         $user = $this->getUserAuth();
-        $this->getSupport($supportId)->replies()->create([
+
+        return $this->getSupport($supportId)->replies()->create([
             'description'=>$data['description'],
             'user_id' => $user->id
         ]);

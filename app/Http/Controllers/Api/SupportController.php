@@ -38,7 +38,7 @@ class SupportController extends Controller
     public function createReply(StoreReplySupportRequest $request, $supportId)
     {
         $reply = $this->repository->createReplyToSupportId($supportId, $request->validated());
-        return ReplyResource::collection($reply);
+        return new  ReplyResource($reply);
     }
 
 
