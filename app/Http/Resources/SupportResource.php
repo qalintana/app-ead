@@ -15,6 +15,7 @@ class SupportResource extends JsonResource
     public function toArray(Request $request): array
     {
         return[
+            'id' => $this->id,
             'status' => $this->status,
             'status_label' =>
                     isset($this->statusOptions[$this->status]) ?
