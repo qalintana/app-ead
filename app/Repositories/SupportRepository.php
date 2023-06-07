@@ -64,8 +64,6 @@ class SupportRepository
 
     private function getSupport(string $support)
     {
-
-
         return $this->entity->findOrFail($support);
     }
 
