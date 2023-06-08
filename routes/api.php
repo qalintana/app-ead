@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\LessonController;
 use App\Http\Controllers\Api\ModuleController;
@@ -32,3 +33,5 @@ Route::post('/supports', [SupportController::class, 'store']);
 Route::get('/supports', [SupportController::class, 'index']);
 
 Route::post('/replies', [ReplySupportController::class, 'createReply']);
+
+Route::post('/auth', [AuthController::class, 'auth']);
