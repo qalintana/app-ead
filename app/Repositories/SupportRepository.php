@@ -4,9 +4,13 @@ namespace App\Repositories;
 
 use App\Models\Support;
 use App\Models\User;
+use App\Repositories\Traits\RepositoryTrait;
+use Illuminate\Http\ResponseTrait;
 
 class SupportRepository
 {
+    use RepositoryTrait;
+
     protected Support $entity;
 
     public function __construct(Support $support)
@@ -34,10 +38,7 @@ class SupportRepository
         ->get();
     }
 
-    private function getUserAuth(): User
-    {
-        return User::first();
-    }
+
 
 
     public function createNewSupport(array $data): Support
@@ -65,7 +66,7 @@ class SupportRepository
 
     }
 
-    private function getSupport(string $support)
+    public function getSupport(string $support)
     {
         return $this->entity->findOrFail($support);
     }
