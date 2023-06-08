@@ -3,9 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Support;
-use App\Models\User;
 use App\Repositories\Traits\RepositoryTrait;
-use Illuminate\Http\ResponseTrait;
 
 class SupportRepository
 {
