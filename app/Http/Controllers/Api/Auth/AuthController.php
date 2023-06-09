@@ -21,10 +21,6 @@ class AuthController extends Controller
 
         }
 
-        // if($request->has('logout_others_devices')) {
-        //     $user->tokens()->delete();
-        // }
-
         $user->tokens()->delete();
 
         $token = $user->createToken($request->device_name)->plainTextToken;
@@ -32,5 +28,10 @@ class AuthController extends Controller
         return response()->json([
             'token' => $token
         ]);
+    }
+
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
     }
 }
