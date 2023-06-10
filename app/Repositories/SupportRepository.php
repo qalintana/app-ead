@@ -42,7 +42,7 @@ class SupportRepository
                 $filter = $filters['filter'];
                 $query->where('description', 'LIKE', "%{$filter}%");
             }
-        })
+        })->with('replies')
         ->orderBy('updated_at')
         ->get();
     }

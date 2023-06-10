@@ -18,6 +18,7 @@ class LesonResource extends JsonResource
             'name' => ucwords(strtolower($this->name)),
             'description' => isset($this->description) ? $this->description : 'Not found 😂⚠️⚠️',
             'video' => $this->video,
+            'views' => $this->views
 
         ];
     }

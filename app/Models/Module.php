@@ -20,15 +20,14 @@ class Module extends Model
 
     protected $fillable = ['name', 'course_id'];
 
-    // public static function booted()
-    // {
-    //     static::creating(function ($model) {
-    //         $model->id =(string) Str::uuid();
-    //     });
-    // }
 
     public function course()
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
     }
 }
