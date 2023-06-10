@@ -33,6 +33,7 @@ class LessonController extends Controller
     {
 
         $this->repository->markLessonViewed($request->lesson);
+
         return response()->json([
             'success' => true
         ]);

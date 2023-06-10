@@ -22,7 +22,6 @@ class LessonRepository
         return $this->entity->where('module_id', $moduleId)->get();
     }
 
-
     public function getLesson(string $lesson)
     {
         return $this->entity->findOrFail($lesson);
@@ -34,7 +33,7 @@ class LessonRepository
         $view = $user->views()->where('lesson_id', $lesson)->first();
 
         if($view) {
-            $view->update([
+            return $view->update([
                 'qty' => $view->qty + 1
             ]);
         }
