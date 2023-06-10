@@ -3,9 +3,11 @@
 namespace App\Repositories;
 
 use App\Models\Lesson;
+use App\Repositories\Traits\RepositoryTrait;
 
 class LessonRepository
 {
+    use RepositoryTrait;
     protected Lesson $entity;
 
 
@@ -24,5 +26,20 @@ class LessonRepository
     public function getLesson(string $lesson)
     {
         return $this->entity->findOrFail($lesson);
+    }
+
+    public function markLessonViewed(string $lesson)
+    {
+        $user = $this->getUserAuth();
+        $view = $user->views()->where('lesson_id', $lesson)->first();
+
+        if($view) {
+            $view->update([
+                'qty' => $view->qty + 1
+            ]);
+        }
+        return $user->views()->create([
+            'lesson_id' => $lesson,
+        ]);
     }
 }
